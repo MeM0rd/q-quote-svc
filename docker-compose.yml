@@ -1,0 +1,14 @@
+version: "3.9"
+
+networks:
+  main:
+    external: true
+
+services:
+  q-quote-svc-app:
+    container_name: q-quote-svc-app
+    build: .
+    ports:
+      - "8091:8091"
+    networks:
+      - main
