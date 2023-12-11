@@ -82,8 +82,8 @@ func (s *Server) Delete(ctx context.Context, in *quotePbServer.DeleteRequest) (*
 	quoteId := int(in.GetQuoteId())
 
 	q := `
-	SELECT r.level  FROM roles r
-	INNER JOIN users u ON r.id = u.role_id
+	SELECT ur.level  FROM user_roles ur
+	INNER JOIN users u ON ur.id = u.role_id
 	WHERE u.id = $1 
 	`
 
